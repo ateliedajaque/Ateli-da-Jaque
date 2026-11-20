@@ -19,8 +19,7 @@ window.ATELIE = {
   categorias: [
     { id: "docinhos", nome: "Docinhos" },
     { id: "cupcakes", nome: "Cupcakes" },
-    { id: "morango", nome: "Com morango" },
-    { id: "individuais", nome: "Individuais" }
+    { id: "morango", nome: "Com morango" }
   ],
 
   produtos: [
