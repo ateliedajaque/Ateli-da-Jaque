@@ -92,8 +92,7 @@ window.ATELIE = {
       frase: "Uma delícia para adoçar seu dia",
       foto: "img/bombom-morango-pote.jpg",
       preco: 10.0,
-      unidade: "pote",
-      novidade: true
+      unidade: "pote"
     },
     {
       id: "bombom-morango-travessa",
@@ -107,7 +106,7 @@ window.ATELIE = {
     {
       id: "coxinha-doce",
       categoria: "morango",
-      nome: "Coxinha doce de morango",
+      nome: "Coxinha de morango",
       frase: "Brigadeiro com morango ou Ninho com morango",
       foto: "img/coxinhas-doces.jpg",
       preco: 10.0,
@@ -117,12 +116,11 @@ window.ATELIE = {
     {
       id: "brownie",
       categoria: "individuais",
-      nome: "Brownie especial",
+      nome: "Brownie",
       frase: "Casquinha crocante por fora e que derrete na boca",
       foto: "img/brownie.jpg",
       preco: 10.0,
       unidade: "unidade",
-      novidade: true,
       info: "Chocolate cremoso com cobertura de chantininho."
     }
   ],
