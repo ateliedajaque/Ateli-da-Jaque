@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://marlonmartinsmenezes-cpu.github.io/Ateli-da-Jaque/sitemap.xml
+Sitemap: https://ateliedajaque.github.io/sitemap.xml

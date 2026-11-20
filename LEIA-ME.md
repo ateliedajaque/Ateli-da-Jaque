@@ -12,7 +12,7 @@ Site estático (HTML, CSS e JavaScript puro). Não precisa de servidor nem de ba
 
 ## Dados já preenchidos
 - WhatsApp: (34) 99771-8118 · Cidade: Araguari (MG)
-- Endereço: https://marlonmartinsmenezes-cpu.github.io/Ateli-da-Jaque/ (repositório marlonmartinsmenezes-cpu/Ateli-da-Jaque)
+- Endereço: https://ateliedajaque.github.io/ (repositório ateliedajaque/ateliedajaque.github.io)
 
 ## Para aparecer no Instagram e no Google
 - Colocar o link do site na bio do @ateliedajaque27 e no botão de contato.
