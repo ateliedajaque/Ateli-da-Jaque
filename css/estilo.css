@@ -261,4 +261,4 @@ body.tem-pedido .zap-flutuante { display: none; }
 .sacola-acoes .btn-zap { flex: 1; }
 .variante { display: block; font-family: var(--f-texto); font-size: .85rem; color: var(--creme); margin-bottom: .2rem; }
 .rodape p { margin: .2rem 0; } .rodape-zap { letter-spacing: .06em; text-transform: none; }
-.produto-foto img[src*="coxinhas"], .destaque img[src*="coxinhas"] { aspect-ratio: 16 / 10; object-fit: contain; background: var(--chocolate); }
+.produto-foto img[src*="coxinhas"], .destaque img[src*="coxinhas"], .produto-foto img[src*="brownie"], .destaque img[src*="brownie"] { aspect-ratio: 16 / 10; object-fit: contain; background: var(--chocolate); }
