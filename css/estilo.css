@@ -119,9 +119,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   padding-block: 1.5rem;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: .9rem;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem;
 }
-@media (max-width: 1000px) and (min-width: 761px) { .destaques { grid-template-columns: repeat(3, 1fr); } }
+.destaques > .destaque { flex: 0 1 calc((100% - 3.6rem) / 5); min-width: 0; }
+@media (max-width: 1000px) and (min-width: 761px) { .destaques > .destaque { flex-basis: calc((100% - 1.8rem) / 3); } }
 .destaque {
   position: relative; display: grid; grid-template-rows: auto auto auto auto; gap: .15rem;
   text-decoration: none; color: var(--creme);
@@ -134,8 +135,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .destaque-preco { font-family: var(--f-titulo); color: var(--ouro-claro); padding-inline: .3rem; font-variant-numeric: tabular-nums; }
 .destaque:hover { border-color: var(--ouro); }
 @media (max-width: 760px) {
-  .destaques { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 78%; overflow-x: auto; scroll-snap-type: x mandatory; }
-  .destaque { scroll-snap-align: start; }
+  .destaques { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .destaques > .destaque { flex: 0 0 78%; scroll-snap-align: start; }
 }
 
 /* seções */
