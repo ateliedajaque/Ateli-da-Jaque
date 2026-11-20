@@ -16,6 +16,8 @@
   --f-titulo: "Playfair Display", Georgia, "Times New Roman", serif;
   --f-frase: "Cormorant Garamond", Georgia, serif;
   --f-texto: "Lato", "Segoe UI", system-ui, sans-serif;
+  --f-marca: "Cinzel", "Times New Roman", serif;
+  --f-script: "Great Vibes", "Brush Script MT", cursive;
 
   --raio: 14px;
   --largura: 1120px;
@@ -64,7 +66,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
 }
 .marca { text-decoration: none; display: flex; flex-direction: column; line-height: 1.1; }
-.marca-nome { font-family: var(--f-titulo); font-size: 1.3rem; color: var(--ouro-claro); letter-spacing: .04em; }
+.marca-nome { font-family: var(--f-marca); font-weight: 600; font-size: 1.25rem; color: var(--ouro-claro); letter-spacing: .08em; text-transform: uppercase; }
 .marca-sub { font-family: var(--f-frase); font-style: italic; font-size: .95rem; color: var(--creme-2); }
 .menu { display: flex; gap: 1.2rem; flex-wrap: wrap; }
 .menu a { color: var(--creme); text-decoration: none; font-size: .9rem; letter-spacing: .04em; }
@@ -270,3 +272,10 @@ body.tem-pedido .zap-flutuante { display: none; }
 .sacola-acoes .btn-zap { flex: 1; }
 .variante { display: block; font-family: var(--f-texto); font-size: .85rem; color: var(--creme); margin-bottom: .2rem; }
 .rodape p { margin: .2rem 0; } .rodape-zap { letter-spacing: .06em; text-transform: none; }
+
+/* letras no estilo das artes do cardápio */
+.sobre-titulo, .destaque-tag, .aviso dt, .selo, .rodape, .filtro { font-family: var(--f-marca); font-weight: 600; }
+.hero h1 .script { display: block; font-family: var(--f-script); font-weight: 400; color: var(--ouro); font-size: 1.25em; line-height: 1.05; margin-top: .1em; }
+.secao h2 { font-family: var(--f-script); font-weight: 400; color: var(--ouro); font-size: clamp(2.6rem, 6vw, 3.8rem); line-height: 1.1; }
+.obrigado { font-family: var(--f-script); font-style: normal; font-size: 2rem; }
+.destaque-nome, .produto h3 { color: var(--ouro-claro); }
