@@ -281,3 +281,4 @@ body.tem-pedido .zap-flutuante { display: none; }
 .secao h2 { font-family: var(--f-script); font-weight: 400; color: var(--ouro); font-size: clamp(2.6rem, 6vw, 3.8rem); line-height: 1.1; }
 .obrigado { font-family: var(--f-script); font-style: normal; font-size: 2rem; }
 .destaque-nome, .produto h3 { color: var(--ouro-claro); }
+.obs-gratis { color: var(--ouro-claro); font-weight: 700; font-size: .85rem; }

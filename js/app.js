@@ -124,24 +124,26 @@
 
     var entrega = document.getElementById("pedido-entrega").checked;
     var soma = itens.reduce(function (s, i) { return s + i.total; }, 0);
-    var total = soma + (entrega ? A.taxaEntrega : 0);
     var n = itens.reduce(function (s, i) { return s + i.q; }, 0);
+    var gratis = n >= 100; // a partir de 100 doces a entrega é grátis
+    var taxa = entrega && !gratis ? A.taxaEntrega : 0;
+    var total = soma + taxa;
 
     document.getElementById("sacola-qtd").textContent = n + (n === 1 ? " doce" : " doces");
     document.getElementById("sacola-total").textContent = brl(total);
     document.getElementById("sacola-lista").innerHTML = itens.map(function (i) {
       return "<li><span>" + i.q + "× " + esc(i.nome) + "</span><span>" + brl(i.total) + "</span></li>";
-    }).join("") + (entrega ? '<li class="taxa"><span>Taxa de entrega</span><span>' + brl(A.taxaEntrega) + "</span></li>" : "");
+    }).join("") + (entrega ? '<li class="taxa"><span>Taxa de entrega</span><span>' + (gratis ? "Grátis" : brl(A.taxaEntrega)) + "</span></li>" : "");
 
-    document.getElementById("sacola-enviar").href = linkZap(mensagem(itens, total, entrega));
+    document.getElementById("sacola-enviar").href = linkZap(mensagem(itens, total, entrega, gratis));
   }
 
-  function mensagem(itens, total, entrega) {
+  function mensagem(itens, total, entrega, gratis) {
     var data = document.getElementById("pedido-data").value;
     var obs = document.getElementById("pedido-obs").value.trim();
     var m = "Olá, Jaque! Quero fazer este pedido pelo site:\n\n";
     itens.forEach(function (i) { m += "• " + i.q + "x " + i.nome + " = " + brl(i.total) + "\n"; });
-    m += entrega ? "• Entrega: " + brl(A.taxaEntrega) + "\n" : "• Vou retirar\n";
+    m += entrega ? "• Entrega: " + (gratis ? "grátis (pedido de cento)" : brl(A.taxaEntrega)) + "\n" : "• Vou retirar\n";
     m += "\nTotal estimado: " + brl(total);
     if (data) m += "\nData: " + data.split("-").reverse().join("/");
     if (obs) m += "\nObservações: " + obs;
