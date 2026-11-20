@@ -119,8 +119,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   padding-block: 1.5rem;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: .9rem;
 }
+@media (max-width: 1000px) and (min-width: 761px) { .destaques { grid-template-columns: repeat(3, 1fr); } }
 .destaque {
   position: relative; display: grid; grid-template-rows: auto auto auto auto; gap: .15rem;
   text-decoration: none; color: var(--creme);
