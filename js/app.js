@@ -29,7 +29,7 @@
     var q = pedido[v.id] || 0;
     return '<div class="qtd" data-id="' + v.id + '">' +
       '<button type="button" class="menos" aria-label="Tirar ' + esc(v.produto.nome + " " + v.nome) + '">−</button>' +
-      '<output aria-live="polite">' + q + "</output>" +
+      '<input type="number" inputmode="numeric" min="0" step="1" value="' + q + '" aria-label="Quantidade de ' + esc(v.produto.nome + " " + v.nome) + '">' +
       '<button type="button" class="mais" aria-label="Adicionar ' + esc(v.produto.nome + " " + v.nome) + '">+</button></div>';
   }
 
@@ -92,6 +92,20 @@
       g.scrollBy({ left: (b.classList.contains("seta-prox") ? 1 : -1) * g.clientWidth, behavior: "smooth" });
     });
 
+    // quantidade digitada
+    document.getElementById("grade").addEventListener("input", function (e) {
+      var inp = e.target.closest(".qtd input"); if (!inp) return;
+      var id = inp.parentNode.dataset.id, q = Math.max(0, Math.floor(Number(inp.value) || 0));
+      if (q <= 0) delete pedido[id]; else pedido[id] = q;
+      atualizar();
+    });
+    document.getElementById("grade").addEventListener("focusout", function (e) {
+      var inp = e.target.closest(".qtd input"); if (inp) inp.value = pedido[inp.parentNode.dataset.id] || 0;
+    });
+    document.getElementById("grade").addEventListener("focusin", function (e) {
+      var inp = e.target.closest(".qtd input"); if (inp) inp.select();
+    });
+
     // links dos destaques mostram todos os produtos
     document.querySelectorAll('.destaque').forEach(function (a) {
       a.addEventListener("click", function () { filtros.querySelector('[data-cat="todos"]').click(); });
@@ -109,7 +123,8 @@
   function atualizar() {
     document.querySelectorAll(".qtd").forEach(function (el) {
       var q = pedido[el.dataset.id] || 0;
-      el.querySelector("output").textContent = q;
+      var inp = el.querySelector("input");
+      if (inp !== document.activeElement) inp.value = q;
     });
     document.querySelectorAll(".produto").forEach(function (card) {
       card.classList.toggle("no-pedido",

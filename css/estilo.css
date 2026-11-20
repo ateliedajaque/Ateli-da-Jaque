@@ -200,7 +200,11 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   font-size: 1.25rem; line-height: 1; cursor: pointer;
 }
 .qtd button.mais { background: var(--ouro); color: var(--chocolate); border-color: var(--ouro); }
-.qtd output { min-width: 2.2ch; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+.qtd input {
+  width: 3.4em; height: 38px; text-align: center; font: 700 1rem var(--f-texto); font-variant-numeric: tabular-nums;
+  color: var(--creme); background: var(--chocolate); border: 1px solid var(--linha); border-radius: 10px; -moz-appearance: textfield;
+}
+.qtd input::-webkit-outer-spin-button, .qtd input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .produto.no-pedido { border-color: var(--ouro); }
 
 /* avisos */
