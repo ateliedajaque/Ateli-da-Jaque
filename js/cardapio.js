@@ -127,7 +127,7 @@ window.ATELIE = {
   avisos: [
     { titulo: "Pagamento", texto: "Aceitamos Pix, dinheiro ou cartão." },
     { titulo: "Encomendas de cento", texto: "Para reservar, pedimos o pagamento antecipado de 50%." },
-    { titulo: "Entregas", texto: "Atendemos todos os bairros{cidade}, com taxa fixa de R$ 8,00." },
+    { titulo: "Entregas", texto: "Atendemos todos os bairros{cidade}, com taxa fixa de R$ 8,00. Encomendas de cento têm entrega grátis!" },
     { titulo: "Antecedência", texto: "Faça seu pedido com pelo menos 15 dias de antecedência." }
   ]
 };
