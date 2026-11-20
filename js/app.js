@@ -10,7 +10,7 @@
   // Cada produto vira uma lista de variantes (produto simples = 1 variante)
   var variantes = {};
   A.produtos.forEach(function (p) {
-    p.passo = p.destaqueCento ? 10 : 1;
+    p.passo = 1;
     p.vars = p.variantes || [{ id: p.id, nome: "", preco: p.preco, faixa: p.faixa }];
     p.vars.forEach(function (v) { v.produto = p; variantes[v.id] = v; });
   });
