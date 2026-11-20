@@ -35,8 +35,16 @@
 
   function cartao(p) {
     var h = '<article class="produto" id="p-' + p.id + '" data-cat="' + p.categoria + '">';
-    h += '<div class="produto-foto"><img src="' + p.foto + '" alt="' + esc(p.nome) + '" loading="lazy">';
-    if (p.novidade) h += '<span class="selo">Novidade</span>';
+    var fotos = p.fotos || [p.foto];
+    h += '<div class="produto-foto"><div class="galeria" tabindex="0" aria-label="Fotos de ' + esc(p.nome) + '">' +
+      fotos.map(function (f, i) {
+        return '<img src="' + f + '" alt="' + esc(p.nome) + (fotos.length > 1 ? " (foto " + (i + 1) + ")" : "") + '" loading="lazy">';
+      }).join("") + "</div>";
+    if (fotos.length > 1) {
+      h += '<button type="button" class="seta seta-ant" aria-label="Foto anterior">‹</button>' +
+        '<button type="button" class="seta seta-prox" aria-label="Próxima foto">›</button>' +
+        '<span class="contador">' + fotos.length + " fotos</span>";
+    }
     h += "</div><div class=\"produto-corpo\"><h3>" + esc(p.nome) + "</h3>";
     if (p.frase) h += '<p class="produto-frase">' + esc(p.frase) + "</p>";
     if (p.info) h += '<p class="produto-info">' + esc(p.info) + "</p>";
@@ -76,6 +84,12 @@
       var q = (pedido[id] || 0) + (b.classList.contains("mais") ? passo : -passo);
       if (q <= 0) delete pedido[id]; else pedido[id] = q;
       atualizar();
+    });
+
+    document.getElementById("grade").addEventListener("click", function (e) {
+      var b = e.target.closest(".seta"); if (!b) return;
+      var g = b.parentNode.querySelector(".galeria");
+      g.scrollBy({ left: (b.classList.contains("seta-prox") ? 1 : -1) * g.clientWidth, behavior: "smooth" });
     });
 
     // links dos destaques mostram todos os produtos
